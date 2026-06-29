@@ -1,23 +1,32 @@
-import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
-import './globals.css';
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-display' });
+import type { Metadata } from "next";
+import { Navbar } from "@/components/Navbar";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: 'Nirexx.AI - The Future of Personal Athletic Intelligence',
-  description: 'Meet the world\'s smartest AI-powered wearable that transforms biometric data into real-time coaching, predictive insights, and elite performance.',
+  title: "Nirexx.AI - Personal Athletic Intelligence",
+  description: "The future of personal athletic intelligence powered by AI insights and real-time analytics",
+  keywords: "AI, fitness, athletic, performance, analytics",
+  viewport: "width=device-width, initial-scale=1",
+  openGraph: {
+    title: "Nirexx.AI - Personal Athletic Intelligence",
+    description: "Transform your athletic performance with AI-powered insights",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}>
-      <body className="bg-primary text-white overflow-x-hidden">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="theme-color" content="#050505" />
+        <meta name="color-scheme" content="dark" />
+      </head>
+      <body className="bg-primary text-white antialiased">
+        <Navbar />
         {children}
       </body>
     </html>

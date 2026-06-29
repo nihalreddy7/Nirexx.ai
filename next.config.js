@@ -1,23 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  images: {
-    unoptimized: true,
-  },
-  headers: async () => {
-    return [
+{
+  "$schema": "https://json.schemastore.org/next-env.json",
+  "images": {
+    "remotePatterns": [
       {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-        ],
-      },
-    ];
-  },
-};
-
-module.exports = nextConfig;
+        "protocol": "https",
+        "hostname": "**"
+      }
+    ]
+  }
+}
